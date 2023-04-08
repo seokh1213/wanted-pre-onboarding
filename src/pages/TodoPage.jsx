@@ -17,21 +17,10 @@ const TodoPage = () => {
 
   const [newTodo, setNewTodo] = useState("");
   const [todoList, setTodoList] = useState([]);
-  const [changedList, setChangedList] = useState([]);
 
   useEffect(() => {
     if (isLoading === false && data) setTodoList(data);
   }, [data, isLoading]);
-
-  useEffect(() => {
-    if (!changedList) return;
-
-    todoList
-      .filter((todo) => changedList.includes(todo.id))
-      .forEach((todo) =>
-        updateTodo(jwtToken, todo.id, todo.todo, todo.isCompleted)
-      );
-  }, [changedList, jwtToken]);
 
   if (!isAuth) {
     return <Navigate to="/signin" />;
@@ -54,7 +43,8 @@ const TodoPage = () => {
         return { ...todo, todo: changedTodo, isCompleted: changedIsCompleted };
       })
     );
-    setChangedList([...changedList, id]);
+
+    updateTodo(jwtToken, id, changedTodo, changedIsCompleted);
   };
 
   const onDeleteHandler = (id) => {
