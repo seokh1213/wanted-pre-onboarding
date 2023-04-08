@@ -10,7 +10,7 @@ const customFetch = (url, ...args) =>
       return {};
     })
     .then((res) => {
-      if (res.error) {
+      if (res.error || res.statusCode >= 400) {
         throw new Error(
           Array.isArray(res.message) ? res.message.join("\n") : res.message
         );

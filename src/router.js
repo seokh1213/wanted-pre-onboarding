@@ -1,21 +1,26 @@
 import { createBrowserRouter } from "react-router-dom";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
+import SignUpPage from "./pages/SignUpPage";
+import SignInPage from "./pages/SignInPage";
 import React from "react";
-import Main from "./pages/Main";
+import MainPage from "./pages/MainPage";
+import TodoPage from "./pages/TodoPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Main />,
+    element: <MainPage />,
   },
   {
     path: "/signup",
-    element: <SignUp />,
+    element: <SignUpPage />,
   },
   {
     path: "/signin",
-    element: <SignIn />,
+    element: <SignInPage />,
+  },
+  {
+    path: "/todo",
+    element: <TodoPage />,
   },
 ]);
 

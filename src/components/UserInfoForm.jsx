@@ -52,6 +52,7 @@ const UserInfoForm = (
         <input
           id="emailInput"
           type="email"
+          placeholder="email"
           onChange={onChangeEmail}
           data-testid="email-input"
         />
@@ -61,6 +62,7 @@ const UserInfoForm = (
         <input
           id="passwordInput"
           type="password"
+          placeholder="password"
           onChange={onChangePassword}
           data-testid="password-input"
         />

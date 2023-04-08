@@ -1,6 +1,6 @@
 import SupportedLink from "../components/SupportedLink";
 
-const Main = () => {
+const MainPage = () => {
   return (
     <div className="page">
       <h1>Main Page</h1>
@@ -10,4 +10,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainPage;

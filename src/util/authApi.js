@@ -1,6 +1,6 @@
 import fetch from "./apiUtil";
 
-const signUpApi = (email, password) =>
+const signUp = (email, password) =>
   fetch("/auth/signup", {
     method: "POST",
     headers: {
@@ -12,7 +12,7 @@ const signUpApi = (email, password) =>
     }),
   });
 
-const signInApi = (email, password) =>
+const signIn = (email, password) =>
   fetch("/auth/signin", {
     method: "POST",
     headers: {
@@ -24,4 +24,4 @@ const signInApi = (email, password) =>
     }),
   });
 
-export { signUpApi, signInApi };
+export { signUp, signIn };
