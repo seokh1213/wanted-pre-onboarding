@@ -25,7 +25,9 @@ const StyledForm = styled.form`
 const UserInfoForm = (
   { isSignUp, onSubmitHandler } = {
     isSignUp: false,
-    onSubmitHandler: (e) => {},
+    onSubmitHandler: (e) => {
+      e.preventDefault();
+    },
   }
 ) => {
   const [email, setEmail] = useState("");
