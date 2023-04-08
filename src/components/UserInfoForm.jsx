@@ -25,9 +25,7 @@ const StyledForm = styled.form`
 const UserInfoForm = (
   { isSignUp, onSubmitHandler } = {
     isSignUp: false,
-    onSubmitHandler: (e) => {
-      e.preventDefault();
-    },
+    onSubmitHandler: (email, password) => {},
   }
 ) => {
   const [email, setEmail] = useState("");
@@ -43,7 +41,12 @@ const UserInfoForm = (
   const isValidState = email.includes("@") && password.length >= 8;
 
   return (
-    <StyledForm onSubmit={onSubmitHandler}>
+    <StyledForm
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmitHandler(email, password);
+      }}
+    >
       <div className="input-container">
         <label htmlFor="emailInput">이메일: </label>
         <input
@@ -64,7 +67,7 @@ const UserInfoForm = (
       </div>
       <button
         disabled={!isValidState}
-        type="button"
+        type="submit"
         data-testid={isSignUp ? "signup-button" : "signin-button"}
       >
         {isSignUp ? "회원가입" : "로그인"}
